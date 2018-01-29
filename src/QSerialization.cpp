@@ -10,7 +10,7 @@
  *      See each function below.
  *
  * License:
- *      Copyright (c) 2012-2017 Made to Order Software Corp.
+ *      Copyright (c) 2012-2018  Made to Order Software Corp.  All Rights Reserved
  *
  *      http://snapwebsites.org/
  *      contact@m2osw.com
@@ -309,7 +309,7 @@ namespace QtSerialization
  *
  * \section copyright libQtSerialization copyright and license
  *
- * Copyright (c) 2012-2017 Made to Order Software Corp.
+ * Copyright (c) 2012-2018  Made to Order Software Corp.  All Rights Reserved
  *
  * http://snapwebsites.org/<br/>
  * contact@m2osw.com
