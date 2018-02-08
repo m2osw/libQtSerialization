@@ -9,9 +9,9 @@ Build-Depends: cmake,
     snapcmakemodules (>= 1.0.35.3~xenial)
 Standards-Version: 3.9.4
 Section: libs
-Homepage: http://snapwebsites.org/project/libqtserialization
+Homepage: https://snapwebsites.org/project/libqtserialization
 Vcs-Git: git://git.code.sf.net/p/snapcpp/code
-Vcs-Browser: http://sourceforge.net/p/snapcpp/code/ci/master/tree/libQtSerialization
+Vcs-Browser: https://sourceforge.net/p/snapcpp/code/ci/master/tree/libQtSerialization
 
 Package: libqtserialization-dev
 Section: libdevel
