@@ -11,7 +11,7 @@ Standards-Version: 3.9.4
 Section: libs
 Homepage: https://snapwebsites.org/project/libqtserialization
 Vcs-Git: git://git.code.sf.net/p/snapcpp/code
-Vcs-Browser: https://sourceforge.net/p/snapcpp/code/ci/master/tree/libQtSerialization
+Vcs-Browser: https://github.com/m2osw/libQtSerialization
 
 Package: libqtserialization-dev
 Section: libdevel
