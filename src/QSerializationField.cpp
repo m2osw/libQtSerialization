@@ -80,6 +80,15 @@ QField::QField(QComposite& composite, const QString& name)
 }
 
 
+/** \brief Destructor.
+ *
+ * The virtual destructor of the QField class.
+ */
+QField::~QField()
+{
+}
+
+
 /** \fn void QField::read(QReader& r);
  * \brief Read the field from the stream.
  *

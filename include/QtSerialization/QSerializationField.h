@@ -47,9 +47,10 @@ class QReader;
 class QField
 {
 public:
-    QField(QComposite& composite, const QString& name);
+                    QField(QComposite& composite, const QString& name);
+    virtual         ~QField();
 
-    virtual void read(QReader& r) = 0;
+    virtual void    read(QReader& r) = 0;
 };
 
 

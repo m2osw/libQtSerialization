@@ -128,7 +128,8 @@ QFieldTag::QFieldTag(QComposite& composite, const QString& name, QSerializationO
     //if(&composite == nullptr) {
     //    throw QExceptionNullReference("the composite reference cannot be a nullptr pointer");
     //}
-    if(f_obj == nullptr) {
+    if(f_obj == nullptr)
+    {
         throw QExceptionNullReference("the object pointer cannot be a nullptr pointer");
     }
 }

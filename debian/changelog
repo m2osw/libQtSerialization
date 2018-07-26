@@ -1,3 +1,9 @@
+libqtserialization (0.1.22.0~xenial) xenial; urgency=high
+
+  * Made code -Weffc++ compatible.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Wed, 25 Jul 2018 18:34:25 -0800
+
 libqtserialization (0.1.21.3~xenial) xenial; urgency=high
 
   * Bump version to recompile without the -fsanitizer flags.

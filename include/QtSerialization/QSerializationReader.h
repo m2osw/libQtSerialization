@@ -89,28 +89,28 @@ private:
     void appendAttributeChar(int attr, int c);
 
     // information about the file being read
-    bool                f_initialized;
-    QString             f_name;
-    qint32              f_file_format_version;
-    qint32              f_major_version;
-    qint32              f_minor_version;
+    bool                f_initialized = false;
+    QString             f_name = QString();
+    qint32              f_file_format_version = 0;
+    qint32              f_major_version = 0;
+    qint32              f_minor_version = 0;
 
     // stream we're reading from
     QPointer<QIODevice> f_stream;
 
     // stream buffer
-    char                f_buffer[BUFFER_SIZE];
-    qint64              f_pos;
-    qint64              f_buf_size;
-    char                f_unget;
+    char                f_buffer[BUFFER_SIZE] = {};
+    qint64              f_pos = 0;
+    qint64              f_buf_size = 0;
+    char                f_unget = 0;
 
     // last data read
-    char                f_tag;
-    bool                f_closing;
-    QByteArray          f_attr_f;
-    QByteArray          f_attr_v;
-    QByteArray          f_attr_m;
-    QByteArray          f_attr_n; // shared with the set/get text
+    char                f_tag = '\0';
+    bool                f_closing = false;
+    QByteArray          f_attr_f = QByteArray();
+    QByteArray          f_attr_v = QByteArray();
+    QByteArray          f_attr_m = QByteArray();
+    QByteArray          f_attr_n = QByteArray(); // shared with the set/get text
 };
 
 

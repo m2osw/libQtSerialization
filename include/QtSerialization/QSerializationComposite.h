@@ -57,7 +57,7 @@ public:
 private:
     typedef QMap<QString, QField *> fields_map_t;
 
-    fields_map_t    f_fields;
+    fields_map_t    f_fields = fields_map_t();
 };
 
 

@@ -76,6 +76,9 @@ public:
     {
     }
 
+    T1C(T1C const & rhs) = delete;
+    T1C & operator = (T1C const & rhs) = delete;
+
     void verify()
     {
         if(f_int8 != -12) {
@@ -157,7 +160,8 @@ public:
 
     virtual void readTag(const QString& name, QtSerialization::QReader& r)
     {
-        if(name == "test1") {
+        if(name == "test1")
+        {
             QtSerialization::QComposite comp;
             QtSerialization::QFieldInt8 f1(comp, "signed byte", f_int8);
             QtSerialization::QFieldUInt8 f2(comp, "unsigned byte", f_uint8);
@@ -287,8 +291,8 @@ public:
     }
 
 private:
-    quint8      f_flags;
-    QString     f_string;
+    quint8      f_flags = 0;
+    QString     f_string = QString();
 };
 
 /** \brief Second level of test 2.
@@ -348,9 +352,9 @@ public:
     }
 
 private:
-    qint64      f_counter;
-    QString     f_string;
-    QSharedPointer<T2C3> f_level3;
+    qint64      f_counter = 0;
+    QString     f_string = QString();
+    QSharedPointer<T2C3> f_level3 = QSharedPointer<T2C3>();
 };
 
 /** \brief First level of test 2.
@@ -410,9 +414,9 @@ public:
     }
 
 private:
-    qint32      f_value;
-    QString     f_string;
-    QSharedPointer<T2C2> f_level2;
+    qint32                  f_value = 0;
+    QString                 f_string = QString();
+    QSharedPointer<T2C2>    f_level2 = QSharedPointer<T2C2>();
 };
 
 /** \brief Run test 2.
@@ -587,9 +591,9 @@ public:
     }
 
 private:
-    int                     f_pos;
-    QString                 f_string;
-    QSharedPointer<T3C2>    f_level2[LEVEL2_MAX];
+    int                     f_pos = 0;
+    QString                 f_string = QString();
+    QSharedPointer<T3C2>    f_level2[LEVEL2_MAX] = { QSharedPointer<T3C2>() };
 };
 const int T3C1::g_org[LEVEL2_MAX] = {
     56,

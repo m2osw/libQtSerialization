@@ -53,17 +53,21 @@ public:
 };
 
 
+// TODO: change this bare pointer in a shared or weak pointer?
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Weffc++"
 class QFieldTag : public QField
 {
 public:
-    QFieldTag(QComposite& composite, const QString& name, QSerializationObject *obj);
+                    QFieldTag(QComposite& composite, const QString& name, QSerializationObject *obj);
 
-    virtual void read(QReader& r);
+    virtual void    read(QReader& r);
 
 private:
-    QString                 f_name;
-    QSerializationObject *  f_obj;
+    QString                 f_name = QString();
+    QSerializationObject *  f_obj = nullptr;
 };
+#pragma GCC diagnostic pop
 
 
 } // namespace QtSerialization
