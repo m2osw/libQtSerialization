@@ -48,12 +48,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Automatically run the moc compiler on qt files
 set( CMAKE_AUTOMOC TRUE )
 
-## Include support modules
-##
-#if( NOT CMAKE_MODULE_PATH )
-#    set( CMAKE_MODULE_PATH ${CMAKE_PREFIX_PATH}/share/cmake )
-#endif()
-
 find_package( SnapCMakeModules REQUIRED )
 find_package( Qt5Core          REQUIRED )
 find_package( SnapDoxygen )
