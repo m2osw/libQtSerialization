@@ -1,3 +1,11 @@
+libqtserialization (0.1.24.0~xenial) xenial; urgency=high
+
+  * Fixed version in CMakeLists.txt, use the changelog info.
+  * Depend on snapdev and libexcept.
+  * Replaced the /*NOTREACHED*/ with snap::NOTREACHED();.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Sat, 20 Jul 2019 22:15:14 -0800
+
 libqtserialization (0.1.23.0~xenial) xenial; urgency=high
 
   * Added a PROJECT_BRIEF description.

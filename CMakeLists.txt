@@ -34,11 +34,7 @@
 #      TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 #      SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
-cmake_minimum_required(VERSION 2.8)
-
-set(LIBQTSERIALIZATION_VERSION_MAJOR 0)
-set(LIBQTSERIALIZATION_VERSION_MINOR 1)
-set(LIBQTSERIALIZATION_VERSION_PATCH 3)
+cmake_minimum_required(VERSION 3.5.1)
 
 project(libQtSerialization)
 
@@ -49,13 +45,12 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set( CMAKE_AUTOMOC TRUE )
 
 find_package( SnapCMakeModules REQUIRED )
+find_package( SnapDev          REQUIRED )
+find_package( LibExcept        REQUIRED )
 find_package( Qt5Core          REQUIRED )
-find_package( SnapDoxygen )
+find_package( SnapDoxygen               )
 
-include_directories(
-    SYSTEM
-    ${Qt5Core_INCLUDE_DIRS}
-)
+SnapGetVersion( LIBQTSERIALIZATION ${CMAKE_CURRENT_SOURCE_DIR} )
 
 include_directories(
     ${PROJECT_SOURCE_DIR}
@@ -63,10 +58,14 @@ include_directories(
     ${PROJECT_BINARY_DIR}
     ${PROJECT_BINARY_DIR}/include
     ${CMAKE_BINARY_DIR}
+    ${SNAPDEV_INCLUDE_DIR}
+    ${Qt5Core_INCLUDE_DIRS}
 )
 
-# Create a configure script
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/QtSerialization/QSerialization.h.in ${CMAKE_CURRENT_BINARY_DIR}/include/QtSerialization/QSerialization.h)
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/QtSerialization/QSerialization.h.in
+    ${CMAKE_CURRENT_BINARY_DIR}/include/QtSerialization/QSerialization.h
+)
 
 add_subdirectory(cmake)
 add_subdirectory(src)

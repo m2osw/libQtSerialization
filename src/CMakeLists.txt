@@ -46,7 +46,10 @@ add_library(${PROJECT_NAME} SHARED
     QSerializationWriter.cpp
 )
 
-target_link_libraries( ${PROJECT_NAME} Qt5::Core )
+target_link_libraries(${PROJECT_NAME}
+    Qt5::Core
+    ${LIBEXCEPT_LIBRARIES}
+)
 
 set_target_properties( ${PROJECT_NAME} PROPERTIES
     VERSION ${LIBQTSERIALIZATION_VERSION_MAJOR}.${LIBQTSERIALIZATION_VERSION_MINOR}
@@ -54,17 +57,31 @@ set_target_properties( ${PROJECT_NAME} PROPERTIES
 )
 
 install(
-    TARGETS QtSerialization LIBRARY DESTINATION lib
+    TARGETS
+        QtSerialization
+
+    LIBRARY DESTINATION
+        lib
 )
 install(
-    DIRECTORY ${libQtSerialization_SOURCE_DIR}/include/QtSerialization
-    DESTINATION include
-    FILES_MATCHING PATTERN *.h
-    PATTERN .svn EXCLUDE
+    DIRECTORY
+        ${libQtSerialization_SOURCE_DIR}/include/QtSerialization
+
+    DESTINATION
+        include
+
+    FILES_MATCHING PATTERN
+        *.h
+
+    PATTERN
+        .svn EXCLUDE
 )
 install(
-    FILES ${libQtSerialization_BINARY_DIR}/include/QtSerialization/QSerialization.h
-    DESTINATION include/QtSerialization/
+    FILES
+        ${libQtSerialization_BINARY_DIR}/include/QtSerialization/QSerialization.h
+
+    DESTINATION
+        include/QtSerialization/
 )
 
 # vim: ts=4 sw=4 et

@@ -35,9 +35,19 @@
  *      SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+
+// self
+//
 #include "QtSerialization/QSerializationReader.h"
 #include "QtSerialization/QSerializationComposite.h"
 #include "QtSerialization/QSerializationExceptions.h"
+
+
+// snapdev lib
+//
+#include <snapdev/not_reached.h>
+
+
 
 namespace QtSerialization
 {
@@ -327,7 +337,7 @@ void QReader::readTag()
     }
     if(c != '<') {
         invalidRead("a tag was expected");
-        /*NOTREACHED*/
+        snap::NOTREACHED();
     }
     // get the tag name
     c = get();
@@ -343,7 +353,7 @@ void QReader::readTag()
 
     default:
         invalidRead("a tag was expected");
-        /*NOTREACHED*/
+        snap::NOTREACHED();
 
     }
     c = get();
@@ -360,11 +370,11 @@ void QReader::readTag()
             switch(c) {
             case STREAM_EOF:
                 invalidRead("unexpected end of input while reading a tag.");
-                /*NOTREACHED*/
+                snap::NOTREACHED();
 
             case '/':
                 invalidRead("empty tags are not currently supported.");
-                /*NOTREACHED*/
+                snap::NOTREACHED();
 
             default:
                 if(c >= 'a' && c <= 'z') {
@@ -372,40 +382,40 @@ void QReader::readTag()
                     break;
                 }
                 invalidRead("unexpected character for an attribute name.");
-                /*NOTREACHED*/
+                snap::NOTREACHED();
 
             }
             int attr(c);
             c = get();
             if(c != '=') {
                 invalidRead("all attributes must be followed by a value.");
-                /*NOTREACHED*/
+                snap::NOTREACHED();
             }
             c = get();
             if(c != '"') {
                 invalidRead("all attributes must be defined between double quotes.");
-                /*NOTREACHED*/
+                snap::NOTREACHED();
             }
             c = get();
             while(c != '"' && c != STREAM_EOF) {
                 // <, >, and ' are forbidden in attributes (must be &...; instead)
                 if(c == '<' || c == '>' || c == '\'') {
                     invalidRead("unexpected character found in an attribute");
-                    /*NOTREACHED*/
+                    snap::NOTREACHED();
                 }
                 appendAttributeChar(attr, c);
                 c = get();
             }
             if(c == STREAM_EOF) {
                 invalidRead("unexpected end of an attribute and thus of a tag");
-                /*NOTREACHED*/
+                snap::NOTREACHED();
             }
             setAttribute(attr, xmlDecode(attribute(attr)));
         }
     }
     else if(c != '>') {
         invalidRead("a tag definition must end with >");
-        /*NOTREACHED*/
+        snap::NOTREACHED();
     }
 }
 
