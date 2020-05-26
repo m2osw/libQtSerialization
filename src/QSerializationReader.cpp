@@ -476,7 +476,7 @@ QString QReader::xmlDecode(const QString& string)
             size_t p(0);
             for(; p < sizeof(buf) / sizeof(buf[0]) && it != string.end(); ++it, ++p) {
                 buf[p] = it->unicode();
-                if(buf[p] == ';') {
+                if(buf[p] == static_cast<int>(';')) {
                     valid = true;
                     break;
                 }
@@ -484,19 +484,34 @@ QString QReader::xmlDecode(const QString& string)
             if(!valid) {
                 invalidRead("invalid entity found in input buffer");
             }
-            if(p == 3 && buf[0] == 'a' && buf[1] == 'm' && buf[2] == 'p') {
+            if(p == 3
+            && buf[0] == static_cast<int>('a')
+            && buf[1] == static_cast<int>('m')
+            && buf[2] == static_cast<int>('p')) {
                 result += '&';
             }
-            else if(p == 2 && buf[0] == 'l' && buf[1] == 't') {
+            else if(p == 2
+                 && buf[0] == static_cast<int>('l')
+                 && buf[1] == static_cast<int>('t')) {
                 result += '<';
             }
-            else if(p == 2 && buf[0] == 'g' && buf[1] == 't') {
+            else if(p == 2
+                 && buf[0] == static_cast<int>('g')
+                 && buf[1] == static_cast<int>('t')) {
                 result += '>';
             }
-            else if(p == 4 && buf[0] == 'q' && buf[1] == 'u' && buf[2] == 'o' && buf[3] == 't') {
+            else if(p == 4
+                 && buf[0] == static_cast<int>('q')
+                 && buf[1] == static_cast<int>('u')
+                 && buf[2] == static_cast<int>('o')
+                 && buf[3] == static_cast<int>('t')) {
                 result += '"';
             }
-            else if(p == 4 && buf[0] == 'a' && buf[1] == 'p' && buf[2] == 'o' && buf[3] == 's') {
+            else if(p == 4
+                 && buf[0] == static_cast<int>('a')
+                 && buf[1] == static_cast<int>('p')
+                 && buf[2] == static_cast<int>('o')
+                 && buf[3] == static_cast<int>('s')) {
                 result += '\'';
             }
             else {

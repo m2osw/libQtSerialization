@@ -1,3 +1,9 @@
+libqtserialization (0.1.25.0~xenial) xenial; urgency=high
+
+  * Fixed the `QChar` compared to characters, force cast to `int`.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Mon, 25 May 2020 17:08:09 -0800
+
 libqtserialization (0.1.24.0~xenial) xenial; urgency=high
 
   * Fixed version in CMakeLists.txt, use the changelog info.
