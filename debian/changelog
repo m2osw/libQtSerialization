@@ -1,3 +1,9 @@
+libqtserialization (0.1.26.2~bionic) bionic; urgency=high
+
+  * Bumped build version to rebuild on Launchpad.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Sun, 29 Aug 2021 13:48:54 -0700
+
 libqtserialization (0.1.26.1~xenial) xenial; urgency=high
 
   * Bumped version to recompile against latest.
